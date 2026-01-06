@@ -10,17 +10,19 @@ export default function Home() {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [dialog, setDialog] = useState<{ title: string; message: string[] } | null>(null);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (process.env.NODE_ENV === "production" ? "/ethanfrome" : "");
+  const asset = (path: string) => `${basePath}${path}`;
 
   const allPhotos = [
-    { src: "/assets/comp-wharton.png", alt: "Isolated Starkfield farmhouse in deep winter, surrounded by bare trees and endless snow" },
-    { src: "/assets/kitchen-table.png", alt: "Sparse kitchen with a broken red pickle dish on worn wooden table" },
-    { src: "/assets/winter-window.png", alt: "Frosted window overlooking desolate snow-covered fields" },
-    { src: "/assets/red-scarf.png", alt: "Red scarf draped over a chair in dim lamplight" },
-    { src: "/assets/sled-hill.png", alt: "Steep hill descent leading toward a large elm tree" },
-    { src: "/assets/comp-mill.png", alt: "The nearby sawmill structure in winter" },
-    { src: "/assets/comp-church.png", alt: "Starkfield church in the snow" },
-    { src: "/assets/comp-shadow.png", alt: "Another view of the farmhouse in shadows" },
-    { src: "/assets/extra-photo.png", alt: "Additional property view showing the stark winter landscape" },
+    { src: asset("/assets/comp-wharton.png"), alt: "Isolated Starkfield farmhouse in deep winter, surrounded by bare trees and endless snow" },
+    { src: asset("/assets/kitchen-table.png"), alt: "Sparse kitchen with a broken red pickle dish on worn wooden table" },
+    { src: asset("/assets/winter-window.png"), alt: "Frosted window overlooking desolate snow-covered fields" },
+    { src: asset("/assets/red-scarf.png"), alt: "Red scarf draped over a chair in dim lamplight" },
+    { src: asset("/assets/sled-hill.png"), alt: "Steep hill descent leading toward a large elm tree" },
+    { src: asset("/assets/comp-mill.png"), alt: "The nearby sawmill structure in winter" },
+    { src: asset("/assets/comp-church.png"), alt: "Starkfield church in the snow" },
+    { src: asset("/assets/comp-shadow.png"), alt: "Another view of the farmhouse in shadows" },
+    { src: asset("/assets/extra-photo.png"), alt: "Additional property view showing the stark winter landscape" },
   ];
 
   const openGallery = (index: number) => {
@@ -142,7 +144,7 @@ export default function Home() {
           <div className="flex justify-between items-center py-2">
             <div className="flex items-center gap-3">
               <Image
-                src="/assets/logo22.png"
+                src={asset("/assets/logo22.png")}
                 alt="Starkfield Realty logo"
                 width={80}
                 height={80}
@@ -475,7 +477,7 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   {
-                    image: "/assets/comp-mill.png",
+                    image: asset("/assets/comp-mill.png"),
                     alt: "The nearby sawmill structure in winter",
                     title: "Corbury Junction Mill",
                     price: "Emotional Cost: Moderate",
@@ -483,7 +485,7 @@ export default function Home() {
                     description: "Transit stop for dreams deferred. Platform for farewells never spoken."
                   },
                   {
-                    image: "/assets/comp-church.png",
+                    image: asset("/assets/comp-church.png"),
                     alt: "Starkfield church in the snow",
                     title: "The Minister's House",
                     price: "Emotional Cost: Eternal",
@@ -491,7 +493,7 @@ export default function Home() {
                     description: "Overlooks cemetery. Daily reminders of mortality. Excellent for contemplating paths not taken."
                   },
                   {
-                    image: "/assets/comp-shadow.png",
+                    image: asset("/assets/comp-shadow.png"),
                     alt: "Another view of the farmhouse in shadows",
                     title: "The Hale Homestead",
                     price: "Emotional Cost: Severe",
@@ -499,7 +501,7 @@ export default function Home() {
                     description: "Multiple rooms for multiple resentments. Extra space for storing grudges."
                   },
                   {
-                    image: "/assets/extra-photo.png",
+                    image: asset("/assets/extra-photo.png"),
                     alt: "Additional property view showing the stark winter landscape",
                     title: "The Varnum Place",
                     price: "Emotional Cost: High",

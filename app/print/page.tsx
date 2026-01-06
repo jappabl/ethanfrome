@@ -2,6 +2,10 @@
 
 import Image from "next/image";
 import { useEffect } from "react";
+import type { PropsWithChildren } from "react";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (process.env.NODE_ENV === "production" ? "/ethanfrome" : "");
+const asset = (path: string) => `${basePath}${path}`;
 
 export default function PrintPage() {
   useEffect(() => {
@@ -57,7 +61,7 @@ export default function PrintPage() {
         <div className="flex items-center justify-between mb-6 pb-4 border-b-2 border-gray-800">
           <div className="flex items-center gap-3">
             <Image
-              src="/assets/logo22.png"
+              src={asset("/assets/logo22.png")}
               alt="Starkfield Realty logo"
               width={80}
               height={80}
@@ -97,7 +101,7 @@ export default function PrintPage() {
         <div className="grid grid-cols-3 gap-3 mb-6">
           <div className="col-span-2 row-span-2">
             <Image
-              src="/assets/sled-hill.png"
+              src={asset("/assets/sled-hill.png")}
               alt="The notorious hill with elm tree at bottom"
               width={1200}
               height={800}
@@ -106,7 +110,7 @@ export default function PrintPage() {
           </div>
           <div>
             <Image
-              src="/assets/winter-window.png"
+              src={asset("/assets/winter-window.png")}
               alt="Frosted window view"
               width={400}
               height={300}
@@ -115,7 +119,7 @@ export default function PrintPage() {
           </div>
           <div>
             <Image
-              src="/assets/extra-photo.png"
+              src={asset("/assets/extra-photo.png")}
               alt="Additional property view"
               width={400}
               height={300}
