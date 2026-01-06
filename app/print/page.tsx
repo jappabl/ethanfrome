@@ -97,6 +97,16 @@ export default function PrintPage() {
           </div>
         </div>
 
+        <div className="flex justify-center mb-4">
+          <Image
+            src={asset("/assets/qrcode.png")}
+            alt="QR code to Starkfield listing"
+            width={140}
+            height={140}
+            className="border border-gray-300 rounded-lg p-3 bg-white"
+          />
+        </div>
+
         {/* Photo Grid + QR */}
         <div className="grid grid-cols-3 gap-3 mb-6">
           <div className="col-span-2 row-span-2">
@@ -117,23 +127,14 @@ export default function PrintPage() {
               className="w-full h-full object-cover rounded-lg border border-gray-300"
             />
           </div>
-          <div className="relative flex flex-col gap-3">
+          <div>
             <Image
               src={asset("/assets/extra-photo.png")}
               alt="Additional property view"
               width={400}
-              height={200}
+              height={300}
               className="w-full h-full object-cover rounded-lg border border-gray-300"
             />
-            <div className="flex justify-center">
-              <Image
-                src={asset("/assets/qrcode.png")}
-                alt="QR code to Starkfield listing"
-                width={120}
-                height={120}
-                className="border border-gray-300 rounded-lg p-2 bg-white"
-              />
-            </div>
           </div>
         </div>
 
