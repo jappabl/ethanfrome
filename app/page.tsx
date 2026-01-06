@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, type KeyboardEvent } from "react";
+import { useState, useEffect } from "react";
+import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 
 export default function Home() {
   const [saved, setSaved] = useState(false);
@@ -41,7 +42,7 @@ export default function Home() {
 
   const closeDialog = () => setDialog(null);
 
-  const handleSearchKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+  const handleSearchKeyDown = (e: ReactKeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
       openDialog("Search Interrupted", [
